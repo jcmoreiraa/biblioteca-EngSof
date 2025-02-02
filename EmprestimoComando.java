@@ -19,6 +19,8 @@ public class EmprestimoComando implements Comando {
             {
                 if (exemplar.taDisponivel()){
                     exemplar.emprestar();
+                    usuario.livrosEmprestados.add(livro);
+                    System.out.println("Usuario" + usuario.getNome() + "recebeu " + livro);
 
                     livro.removerReserva(usuario);
                     System.out.println(usuario.getNome() + "Emprestou" + livro.getTitulo());

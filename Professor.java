@@ -8,13 +8,17 @@ public class Professor extends Usuario {
     @Override
     public int getPrazoDoEmprestimo() {
         // TODO Auto-generated method stub
-        return 2;
+        return 8;
         }
 
     @Override
     public int getLimiteDoEmprestimo() {
         // TODO Auto-generated method stub
         return 4;
+    }
+
+    public void receberNotificacao(Livro livro) {
+        System.out.println("Professor " + getNome() + " foi notificado sobre o livro: " + livro.getTitulo());
     }
 
    

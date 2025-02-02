@@ -1,3 +1,4 @@
+
 public class AlunoGraduacao extends Usuario {
 
     public AlunoGraduacao(int codigo, String nome) {
@@ -16,5 +17,5 @@ public class AlunoGraduacao extends Usuario {
         // TODO Auto-generated method stub
         return 2;
     }
-    
 }
+    

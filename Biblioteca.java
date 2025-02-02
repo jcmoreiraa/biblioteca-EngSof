@@ -5,11 +5,16 @@ public class Biblioteca {
     private static Biblioteca instancia;
     private final Map<Integer, Livro> livros;
     private final Map<Integer, Usuario> usuarios;
+    private final Map<Integer, Integer> notificacoesProfessores;
+
+    
     
 
     private Biblioteca(){
         this.livros = new HashMap<>();
         this.usuarios = new HashMap<>();
+        this.notificacoesProfessores = new HashMap<>();
+
     }
 
     public static Biblioteca getInstance(){
@@ -17,6 +22,13 @@ public class Biblioteca {
             instancia = new Biblioteca();
         }
         return instancia;
+    }
+    public void notificarProfessor(int professorId) {
+        notificacoesProfessores.put(professorId, notificacoesProfessores.getOrDefault(professorId, 0) + 1);
+    }
+    
+    public int getNotificacoesProfessor(int professorId) {
+        return notificacoesProfessores.getOrDefault(professorId, 0);
     }
 
 
