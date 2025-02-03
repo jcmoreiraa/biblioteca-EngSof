@@ -33,6 +33,7 @@ abstract class Usuario {
         Date hoje = new Date();
         for (Emprestimo emprestimo : livrosEmprestados) {
             if (emprestimo.getEstado().equals("corrente") && hoje.after(emprestimo.getDataDevolucao())) {
+                setAtraso(true);
                 return true;
             }
         }
