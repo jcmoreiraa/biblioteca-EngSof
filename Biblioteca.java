@@ -18,7 +18,7 @@ public class Biblioteca {
     }
 
     public static Biblioteca getInstance(){
-        if (instancia == null){
+        if (instancia == null) {
             instancia = new Biblioteca();
         }
         return instancia;
@@ -37,15 +37,15 @@ public class Biblioteca {
     }
 
     public void adicionarUsuario(Usuario usuario) {
-         usuarios.put(usuario.getCodigo(), usuario); 
-        }
+        usuarios.put(usuario.getCodigo(), usuario); 
+    }
 
     public Livro buscarLivro(int codigo) {
-         return livros.get(codigo); 
+        return livros.get(codigo); 
     }
     
     public Usuario buscarUsuario(int codigo) {
-         return usuarios.get(codigo); 
-        }
+        return usuarios.get(codigo); 
+    }
     
 }

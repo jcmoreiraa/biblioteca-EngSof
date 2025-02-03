@@ -1,8 +1,9 @@
+
 import java.util.*;
 
+class Livro {
 
-class Livro{
-    private final  int codigo;
+    private final int codigo;
     private final String titulo;
     private final String editora;
     private final String autor;
@@ -10,8 +11,9 @@ class Livro{
     private final int ano;
     private final List<Exemplar> exemplares;
     private final Queue<Usuario> reservas;
+    private final List<Usuario> observadores;
 
-    public Livro(int codigo, String titulo, String editora, String autor, int edicao, int ano){
+    public Livro(int codigo, String titulo, String editora, String autor, int edicao, int ano) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.editora = editora;
@@ -20,58 +22,71 @@ class Livro{
         this.ano = ano;
         this.exemplares = new ArrayList<>();
         this.reservas = new LinkedList<>();
+        this.observadores = new ArrayList<>();
     }
 
-
-
-    public int getCodigo(){
+    public int getCodigo() {
         return codigo;
     }
 
-    public String getTitulo(){
+    public String getTitulo() {
         return titulo;
     }
 
-    public List<Exemplar> getExemplares(){
+    public List<Exemplar> getExemplares() {
         return exemplares;
     }
 
-    public Queue<Usuario> getReservas(){
+    public Queue<Usuario> getReservas() {
         return reservas;
     }
 
-    public void adicionarExemplar(Exemplar exemplar){
+    public List<Usuario> getObservadores() {
+        return observadores;
+    }
+
+    public void adicionarExemplar(Exemplar exemplar) {
         exemplares.add(exemplar);
     }
 
-    public void adicionarUsuario(Usuario usuario){
-        if (reservas.size() < 3){
+    public void adicionarObservadores(Usuario observador) {
+        observadores.add(observador);
+    }
+
+    public void adicionarUsuario(Usuario usuario) {
+        if (reservas.size() < 3) {
             reservas.add(usuario);
             System.out.println(usuario.getNome() + "reservou" + titulo);
-        }
-        else{
+        } else {
             System.out.println("Não é possível reservar, limite foi atingido");
         }
 
     }
 
-    public void removerUsuario(Usuario usuario){
+    public void removerUsuario(Usuario usuario) {
         reservas.remove(usuario);
     }
-
-
 
     public void adicionarReserva(Usuario usuario) {
         // TODO Auto-generated method stub
         if (reservas.size() < 3) {
             reservas.add(usuario);
             System.out.println(usuario.getNome() + " reservou " + titulo);
+            if (reservas.size() == 3) {
+                for (Usuario observador : observadores) {
+                    // CHECAR SE ISSO FUNCIONA
+                    if (observador instanceof Professor professor) {
+                        professor.receberNotificacao(this);    
+                    }
+                    // if (observador instanceof Professor) {
+                    //     ((Professor) observador).receberNotificacao(this);    
+                    // }
+                }
+            }
         } else {
             System.out.println("Não é possível reservar, limite foi atingido");
         }
     }
-
-
 
     public void removerReserva(Usuario usuario) {
         // TODO Auto-generated method stub
@@ -82,13 +97,5 @@ class Livro{
             System.out.println("Reserva não encontrada para " + usuario.getNome());
         }
     }
-
-
-
-    
-
-
-
-    
 
 }
