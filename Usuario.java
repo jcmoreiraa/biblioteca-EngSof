@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 abstract class Usuario {
     protected final int codigo;
     protected final String nome;
-    protected List<Livro> livrosEmprestados;
+    protected List<Emprestimo> livrosEmprestados;
     protected boolean atrasado;
     protected boolean temLivroEmprestado;
 
@@ -24,12 +25,18 @@ abstract class Usuario {
         return nome; 
     }
 
-    public List<Livro> getLivrosEmprestados() {
+    public List<Emprestimo> getLivrosEmprestados() {
         return livrosEmprestados;
     }
 
     public boolean temAtraso() { 
-        return atrasado; 
+        Date hoje = new Date();
+        for (Emprestimo emprestimo : livrosEmprestados) {
+            if (emprestimo.getEstado().equals("corrente") && hoje.after(emprestimo.getDataDevolucao())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void setAtraso(boolean atraso) { 
@@ -39,8 +46,8 @@ abstract class Usuario {
     public boolean temLivroEmprestado(Livro livro) {
         boolean temLivro = false;
 
-        for (Livro livroProcura : livrosEmprestados) {
-            if (livro.equals(livroProcura)) {
+        for (Emprestimo emprestimoProcura : livrosEmprestados) {
+            if (livro.equals(emprestimoProcura.getLivro())) {
                 temLivro = true;
                 break; 
             }
