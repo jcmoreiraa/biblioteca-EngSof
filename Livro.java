@@ -49,8 +49,9 @@ class Livro {
         exemplares.add(exemplar);
     }
 
-    public void adicionarObservadores(Usuario observador) {
+    public void adicionarObservador(Usuario observador) {
         observadores.add(observador);
+        System.out.println(observador.getNome() + "está observando" + titulo);
     }
 
     public void adicionarUsuario(Usuario usuario) {
@@ -74,13 +75,9 @@ class Livro {
             System.out.println(usuario.getNome() + " reservou " + titulo);
             if (reservas.size() == 3) {
                 for (Usuario observador : observadores) {
-                    // CHECAR SE ISSO FUNCIONA
                     if (observador instanceof Professor professor) {
                         professor.receberNotificacao(this);    
                     }
-                    // if (observador instanceof Professor) {
-                    //     ((Professor) observador).receberNotificacao(this);    
-                    // }
                 }
             }
         } else {
