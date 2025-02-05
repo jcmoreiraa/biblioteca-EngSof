@@ -8,7 +8,7 @@ class Comandos {
 
     public Comandos(Biblioteca biblioteca) {
         comandos = new HashMap<>();
-        comandos.put("emp", new ObservadorComando(biblioteca));
+        comandos.put("emp", new EmprestimoComando(biblioteca));
         comandos.put("res", new ReservaComando(biblioteca));
         comandos.put("dev", new DevolucaoComando(biblioteca));
         comandos.put("obs", new ObservadorComando(biblioteca));

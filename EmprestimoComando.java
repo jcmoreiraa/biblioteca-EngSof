@@ -18,6 +18,10 @@ public class EmprestimoComando implements Comando {
         if (usuario != null && livro != null) {
             for (Exemplar exemplar : livro.getExemplares()) {
                 if (exemplar.taDisponivel()) {
+                    if(usuario.temAtraso() == true) {
+                        System.out.println("O usuário possui atraso.");
+                        return;
+                    }
                     exemplar.emprestar();
                     Emprestimo emprestimo = new Emprestimo(livro, usuario);
                     usuario.livrosEmprestados.add(emprestimo);
