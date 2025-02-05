@@ -8,6 +8,9 @@ public class Exemplar {
         this.disponivel = true;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
 
     public boolean taDisponivel(){
         return disponivel;
