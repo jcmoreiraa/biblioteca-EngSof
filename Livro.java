@@ -80,6 +80,7 @@ class Livro {
                     }
                 }
             }
+            usuario.livrosReservados.put(this, new Date());
         } else {
             System.out.println("Não é possível reservar, limite foi atingido");
         }
@@ -89,6 +90,7 @@ class Livro {
         // TODO Auto-generated method stub
         if (reservas.contains(usuario)) {
             reservas.remove(usuario);
+            usuario.livrosReservados.remove(this);
             System.out.println(usuario.getNome() + " teve sua reserva removida para " + titulo);
         } else {
             System.out.println("Reserva não encontrada para " + usuario.getNome());

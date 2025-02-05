@@ -28,7 +28,7 @@ public class Emprestimo {
         calendar.setTime(dataEmprestimo);
         calendar.add(Calendar.DAY_OF_YEAR, usuario.getPrazoDoEmprestimo());
         this.dataDevolucao = calendar.getTime(); 
-        this.estado = "corrente";
+        this.estado = "Em curso";
     }
 
     public String getEstado() {
@@ -37,6 +37,10 @@ public class Emprestimo {
 
     public Livro getLivro() {
       return this.livro;
+    }
+
+    public Date getDataEmprestimo() {
+      return this.dataEmprestimo;
     }
 
     public Date getDataDevolucao() {

@@ -32,7 +32,7 @@ public class Professor extends Usuario implements Observer {
     }
 
     @Override
-    public int getNotificoes() {
+    public int getNotificacoes() {
         return this.notificacoes;
     }
 }
