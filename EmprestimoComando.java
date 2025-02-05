@@ -25,6 +25,7 @@ public class EmprestimoComando implements Comando {
                     exemplar.emprestar();
                     Emprestimo emprestimo = new Emprestimo(livro, usuario);
                     usuario.livrosEmprestados.add(emprestimo);
+                    usuario.historicoDeEmprestimos.add(emprestimo);
                     System.out.println("Usuario" + usuario.getNome() + "recebeu " + livro);
 
                     livro.removerReserva(usuario);

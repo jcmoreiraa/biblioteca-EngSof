@@ -1,6 +1,6 @@
 
 public interface Observer {
   void notificar();
-  int getNotificoes();
+  int getNotificacoes();
 }
 

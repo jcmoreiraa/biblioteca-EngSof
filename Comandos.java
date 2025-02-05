@@ -12,6 +12,8 @@ class Comandos {
         comandos.put("res", new ReservaComando(biblioteca));
         comandos.put("dev", new DevolucaoComando(biblioteca));
         comandos.put("obs", new ObservadorComando(biblioteca));
+        comandos.put("ntf", new NotificacoesComando(biblioteca));
+        comandos.put("usu", new UsuarioComando(biblioteca));
     }
 
     public void executarComando(String entrada) {
