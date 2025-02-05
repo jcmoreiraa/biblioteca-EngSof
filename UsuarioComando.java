@@ -18,10 +18,10 @@ public class UsuarioComando implements Comando {
 
         if (usuario != null) {
             for (Emprestimo emprestimo : usuario.getHistoricoDeEmprestimos()) {
-                System.out.println("Título:" + emprestimo.getLivro().getTitulo());
-                System.out.println("Data do empréstimo:" + emprestimo.getDataEmprestimo());
-                System.out.println("Estado do empréstimo:" + emprestimo.getEstado());
-                System.out.println("Data de devolução:" + emprestimo.getDataDevolucao());
+                System.out.println("Título: " + emprestimo.getLivro().getTitulo());
+                System.out.println("Data do empréstimo: " + emprestimo.getDataEmprestimo());
+                System.out.println("Estado do empréstimo: " + emprestimo.getEstado());
+                System.out.println("Data de devolução: " + emprestimo.getDataDevolucao());
                 System.out.println("----------------------------------------");
             }
 
@@ -29,8 +29,8 @@ public class UsuarioComando implements Comando {
                 Livro livro = entrada.getKey();
                 Date data = entrada.getValue();
 
-                System.out.println("Título:" + livro.getTitulo());
-                System.out.println("Data da solicitação:" + data);
+                System.out.println("Título: " + livro.getTitulo());
+                System.out.println("Data da solicitação: " + data);
                 System.out.println("----------------------------------------");
             };
         }

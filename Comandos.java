@@ -14,6 +14,7 @@ class Comandos {
         comandos.put("obs", new ObservadorComando(biblioteca));
         comandos.put("ntf", new NotificacoesComando(biblioteca));
         comandos.put("usu", new UsuarioComando(biblioteca));
+        comandos.put("liv", new LivroComando(biblioteca));
     }
 
     public void executarComando(String entrada) {
