@@ -13,7 +13,8 @@ public class NotificacoesComando implements Comando {
         int userId = Integer.parseInt(parametros[1]);
         Usuario usuario = biblioteca.buscarUsuario(userId);
 
-        if (usuario != null && usuario instanceof Professor professor) {
+        if (usuario != null) {
+            Professor professor = (Professor) usuario;
             int notificacoes = professor.getNotificacoes();
             System.out.println("Número de notificações recebidas:" + notificacoes);
         }

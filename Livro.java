@@ -75,9 +75,8 @@ class Livro {
             System.out.println(usuario.getNome() + " reservou " + titulo);
             if (reservas.size() == 3) {
                 for (Usuario observador : observadores) {
-                    if (observador instanceof Professor professor) {
-                        professor.receberNotificacao(this);    
-                    }
+                    Professor professor = (Professor) observador;
+                    professor.receberNotificacao(this);
                 }
             }
             usuario.livrosReservados.put(this, new Date());
