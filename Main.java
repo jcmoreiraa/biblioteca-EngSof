@@ -14,6 +14,7 @@ public class Main {
 
         Livro livro = new Livro(100, "Engenharia de Software", "Addison Wesley", "Ian Sommerville", 6, 2000);
         livro.adicionarExemplar(new Exemplar(1));
+        livro.adicionarExemplar(new Exemplar(2));
         Livro livro2 = new Livro(101, "Engenharia de Software2", "Addison Wesley", "Ian Sommerville", 6, 2000);
         livro2.adicionarExemplar(new Exemplar(1));
         biblioteca.adicionarLivro(livro);

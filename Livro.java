@@ -11,6 +11,7 @@ class Livro {
     private final int ano;
     private final List<Exemplar> exemplares;
     private final Queue<Usuario> reservas;
+    private final List<Usuario> emprestimos;
     private final List<Usuario> observadores;
 
     public Livro(int codigo, String titulo, String editora, String autor, int edicao, int ano) {
@@ -22,6 +23,7 @@ class Livro {
         this.ano = ano;
         this.exemplares = new ArrayList<>();
         this.reservas = new LinkedList<>();
+        this.emprestimos = new ArrayList<>();
         this.observadores = new ArrayList<>();
     }
 
@@ -39,6 +41,10 @@ class Livro {
 
     public Queue<Usuario> getReservas() {
         return reservas;
+    }
+
+    public List<Usuario> getEmprestimos() {
+        return emprestimos;
     }
 
     public List<Usuario> getObservadores() {

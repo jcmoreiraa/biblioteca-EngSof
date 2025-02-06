@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class LivroComando implements Comando {
 
@@ -19,15 +21,21 @@ public class LivroComando implements Comando {
         System.out.println("Quantidade de reservas: " + livro.getReservas().size());
         if (!livro.getReservas().isEmpty()) {
             for (Usuario usuario : livro.getReservas()) {
-                usuariosStr += usuario.getNome() + ", ";
+                usuariosStr += usuario.getNome() + ". ";
             }
+            System.out.println("Usuários que reservaram: " + usuariosStr);
         }
+        int i = 0;
         for (Exemplar exemplar : livro.getExemplares()) {
-            String status = exemplar.taDisponivel() ? "Disponivel" : "Indisponivel";
-            exemplaresStr += exemplar.getCodigo() + " - " + status + ", ";
+            String status = exemplar.taDisponivel()
+                ? "Disponivel"
+                : "Emprestado por " + (i < livro.getEmprestimos().size() ? livro.getEmprestimos().get(i).getNome() : "Desconhecido");
+            exemplaresStr += exemplar.getCodigo() + " - " + status + ". ";
+            i++;
         }
-        System.out.println("Usuários que reservaram: " + usuariosStr);
         System.out.println("Exemplares: " + exemplaresStr);
     }
+
+
 
 }
