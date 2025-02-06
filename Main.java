@@ -5,7 +5,8 @@ public class Main {
 
     public static void main(String[] args) {
         Biblioteca biblioteca = Biblioteca.getInstance();
-
+        AlunoGraduacao aluno = new AlunoGraduacao(123, "João da Silva");
+        // System.out.println(aluno.getLimiteDoEmprestimo());
         biblioteca.adicionarUsuario(new AlunoGraduacao(123, "João da Silva"));
         biblioteca.adicionarUsuario(new AlunoPosGraduacao(456, "Luiz Fernando Rodrigues"));
         biblioteca.adicionarUsuario(new AlunoGraduacao(789, "Pedro Paulo"));
