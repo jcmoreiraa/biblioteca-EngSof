@@ -14,9 +14,10 @@ public class ObservadorComando implements Comando {
         int livroId = Integer.parseInt(parametros[2]);
         Usuario usuario = biblioteca.buscarUsuario(userId);
         Livro livro = biblioteca.buscarLivro(livroId);
-
-        if (usuario != null && livro != null && usuario instanceof Professor) {
-            livro.adicionarObservador(usuario);
+        
+        Professor professor = (Professor) usuario; 
+        if (professor != null && livro != null) {
+            livro.adicionarObservador(professor);
         }
     }
 
